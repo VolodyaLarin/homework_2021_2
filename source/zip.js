@@ -1,13 +1,21 @@
-function zip_1(target, ...sources) {
+/**
+ * Функция реализует объединение полей нескольких объектов в один. 
+ * 
+ * Если одно и то же поле встретилось в нескольких объектах,
+ * остается значение, которое встретилось раньше.
+ * @param  {...object} sources - объекты, поля которых будут добавлены в новый объект
+ * @returns {object} объект, содержащий все поля из всех объектов
+ * переданных в аргументы функции
+ */
+function zip(...sources) {
+    const target = {}
     sources.forEach((source) => {
-        for (let item in source) {
-            if (target[item] !== undefined) continue;
-            target[item] = source[item];
-        }
+        Object.keys(source).forEach((item)=>{
+            if (target[item] !== undefined) {
+                return
+            }
+            target[item] = source[item]
+        })
     })
     return target
-}
-
-function zip(...sources) {
-    return Object.assign(...sources.reverse());
 }
