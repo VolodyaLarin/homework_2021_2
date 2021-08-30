@@ -8,14 +8,5 @@
  * переданных в аргументы функции
  */
 function zip(...sources) {
-    const target = {}
-    sources.forEach((source) => {
-        Object.keys(source).forEach((item)=>{
-            if (target[item] !== undefined) {
-                return
-            }
-            target[item] = source[item]
-        })
-    })
-    return target
+    return Object.assign({}, ...sources.reverse());
 }
