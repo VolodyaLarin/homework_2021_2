@@ -7,6 +7,4 @@
  * @returns {object} объект, содержащий все поля из всех объектов
  * переданных в аргументы функции
  */
-function zip(...sources) {
-    return Object.assign({}, ...sources.reverse());
-}
+const zip = (...sources) => Object.assign({}, ...sources.reverse());
